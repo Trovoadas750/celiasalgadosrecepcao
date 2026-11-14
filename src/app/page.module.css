@@ -140,9 +140,11 @@
   }
 }
 
+/* Começa em 0.01 (e não 0): com opacidade 0 exata o navegador não registra o
+   primeiro "conteúdo pintado", e as métricas (FCP/LCP) somem. */
 @keyframes entrar {
   from {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(8px);
   }
   to {

@@ -22,7 +22,8 @@ export default function Pagina() {
             alt={NOME}
             width={500}
             height={500}
-            preload
+            loading="eager"
+            fetchPriority="high"
             sizes="(min-width: 768px) 180px, 150px"
             className={styles.logo}
           />
