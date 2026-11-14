@@ -1,0 +1,47 @@
+.rodape {
+  width: 100%;
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.5;
+  color: var(--texto-sec);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.rodape p {
+  margin: 0;
+}
+
+.trecho {
+  white-space: nowrap;
+}
+
+.rodape p + p {
+  margin-top: 4px;
+}
+
+/* Link em café (nunca ferrugem pequeno sobre creme). O padding com margem
+   negativa aumenta a área de toque para 48px sem empurrar o layout. */
+.mapa {
+  display: inline-block;
+  padding: 15px 6px;
+  margin: -15px -6px;
+  color: var(--cafe);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  .mapa:hover {
+    text-decoration-thickness: 2.5px;
+  }
+}
+
+@media (min-width: 768px) {
+  .rodape {
+    font-size: 0.875rem; /* 14px */
+  }
+}

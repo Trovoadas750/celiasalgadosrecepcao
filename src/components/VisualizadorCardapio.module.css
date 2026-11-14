@@ -1,0 +1,169 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: rgba(37, 28, 20, 0.92);
+  animation: aparecer 180ms ease-out;
+}
+
+/* No fundo escuro, o contorno café some: aqui o foco fica creme. */
+.modal :focus-visible {
+  outline-color: var(--creme-claro);
+}
+
+.fechar {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--creme-claro);
+  color: var(--cafe);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.fechar:active {
+  transform: scale(0.94);
+}
+
+@media (hover: hover) {
+  .fechar:hover {
+    background: #fff;
+  }
+}
+
+/* Área da imagem. margin:auto na imagem centraliza quando cabe e
+   permite rolar até as bordas quando ampliada. */
+.palco {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: calc(max(12px, env(safe-area-inset-top)) + 60px)
+    max(16px, env(safe-area-inset-right)) 8px max(16px, env(safe-area-inset-left));
+}
+
+.imagem {
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  cursor: zoom-in;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation; /* pinça continua; o duplo toque fica com a gente */
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.visivel {
+  opacity: 1;
+}
+
+.ampliada {
+  max-width: none;
+  max-height: none;
+  height: auto;
+  cursor: zoom-out;
+}
+
+.aviso {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--creme-claro);
+  font-size: 1rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.girando {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(250, 240, 232, 0.25);
+  border-top-color: var(--creme-claro);
+  border-radius: 50%;
+  animation: girar 800ms linear infinite;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px max(16px, env(safe-area-inset-right))
+    max(14px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+
+.acao {
+  flex: 1 1 0;
+  max-width: 260px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.acao:active {
+  transform: scale(0.98);
+}
+
+.baixar {
+  background: var(--creme-claro);
+  color: var(--cafe);
+}
+
+.pedir {
+  background: var(--ferrugem);
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .baixar:hover {
+    background: #fff;
+  }
+  .pedir:hover {
+    background: var(--ferrugem-hover);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}

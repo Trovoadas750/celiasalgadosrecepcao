@@ -1,0 +1,75 @@
+:root {
+  --creme: #F2DBC9;        /* fundo da página */
+  --creme-claro: #FAF0E8;  /* fundo do cartão/superfície */
+  --cafe: #251C14;         /* texto principal */
+  --texto-sec: #5C4636;    /* texto secundário */
+  --ferrugem: #A44A2F;     /* botão principal (texto BRANCO) */
+  --ferrugem-hover: #8A3D26;
+  --ferrugem-ativo: #743320;
+  --laranja: #FE914E;      /* botão de destaque (texto CAFÉ) */
+  --laranja-hover: #F57C33;
+  --borda-suave: #E3C4AC;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--cafe);
+  font-family: var(--fonte), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cafe);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

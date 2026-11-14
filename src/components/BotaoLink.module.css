@@ -1,0 +1,91 @@
+.botao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 12px 16px 12px 18px;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  font-size: 1.0625rem; /* 17px */
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 150ms ease;
+}
+
+.botao:active {
+  transform: scale(0.98);
+}
+
+.icone {
+  display: flex;
+  flex: none;
+}
+
+.texto {
+  flex: 1;
+  text-align: left;
+}
+
+.seta {
+  display: flex;
+  flex: none;
+  opacity: 0.75;
+}
+
+/* 1) Principal: ferrugem + texto branco */
+.principal {
+  background: var(--ferrugem);
+  color: #fff;
+}
+.principal:active {
+  background: var(--ferrugem-ativo);
+}
+
+/* 2) Destaque: laranja + texto café (nunca branco) */
+.destaque {
+  background: var(--laranja);
+  color: var(--cafe);
+}
+.destaque:active {
+  background: var(--laranja-hover);
+}
+
+/* 3) Contorno: borda e texto ferrugem-hover sobre creme-claro */
+.contorno {
+  background: var(--creme-claro);
+  border-color: var(--ferrugem-hover);
+  color: var(--ferrugem-hover);
+}
+.contorno:active {
+  background: var(--borda-suave);
+}
+
+/* Hover só onde existe mouse, para não "grudar" no toque */
+@media (hover: hover) {
+  .principal:hover {
+    background: var(--ferrugem-hover);
+  }
+  .destaque:hover {
+    background: var(--laranja-hover);
+  }
+  .contorno:hover {
+    background: var(--creme);
+  }
+  .botao:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(37, 28, 20, 0.12);
+  }
+  .botao:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: none;
+  }
+}
